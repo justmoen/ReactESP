@@ -7,26 +7,20 @@ namespace reactesp {
 void EventLoop::tickTimed() {
   xSemaphoreTakeRecursive(timed_queue_mutex_, portMAX_DELAY);
   const uint64_t now = micros64();
-  TimedEvent* top = nullptr;
 
-  while (true) {
-    if (timed_queue.empty()) {
+  while (!timed_events_.empty()) {
+    auto it = timed_events_.begin();
+    TimedEvent* event = *it;
+    if (now < event->getTriggerTimeMicros()) {
       break;
     }
-    top = timed_queue.top();
-    if (!top->isEnabled()) {
-      timed_queue.pop();
-      delete top;
-      continue;
-    }
-    const uint64_t trigger_t = top->getTriggerTimeMicros();
-    if (now >= trigger_t) {
-      timed_queue.pop();
-      top->tick(this);
-      timed_event_counter++;
-    } else {
-      break;
-    }
+    timed_events_.erase(it);
+    xSemaphoreGiveRecursive(timed_queue_mutex_);
+    // tick() may re-insert the event (RepeatEvent) or delete it
+    // (DelayEvent), and may call back into the event loop.
+    event->tick(this);
+    timed_event_counter++;
+    xSemaphoreTakeRecursive(timed_queue_mutex_, portMAX_DELAY);
   }
   xSemaphoreGiveRecursive(timed_queue_mutex_);
 }

@@ -5,6 +5,7 @@
 
 #include <functional>
 #include <memory>
+#include <set>
 
 namespace reactesp {
 
@@ -117,11 +118,35 @@ class TimedEvent : public Event {
   uint64_t getTriggerTimeMicros() const {
     return (last_trigger_time + interval);
   }
+
+  /**
+   * @brief Check if the event is still active.
+   *
+   * An event is active unless it was removed while being ticked (i.e.,
+   * from within its own callback). In that case, tick() will delete the
+   * event instead of reinserting it.
+   */
   bool isEnabled() const { return enabled; }
 };
 
+/**
+ * @brief Strict total ordering for TimedEvent pointers.
+ *
+ * Orders by trigger time ascending. Pointer address is used as a
+ * tiebreaker so that distinct events with the same trigger time have
+ * a well-defined, unique position in an ordered container (std::set).
+ *
+ * Note: last_trigger_time (part of the sort key) must not be mutated
+ * while the event is inside the container — remove first, modify, then
+ * re-insert.
+ */
 struct TriggerTimeCompare {
-  bool operator()(TimedEvent* a, TimedEvent* b) { return *b < *a; }
+  bool operator()(const TimedEvent* a, const TimedEvent* b) const {
+    const uint64_t ta = a->getTriggerTimeMicros();
+    const uint64_t tb = b->getTriggerTimeMicros();
+    if (ta != tb) return ta < tb;
+    return std::less<const TimedEvent*>{}(a, b);
+  }
 };
 
 /**

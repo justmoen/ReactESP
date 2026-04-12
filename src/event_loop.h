@@ -1,7 +1,7 @@
 #ifndef REACTESP_SRC_EVENT_LOOP_H_
 #define REACTESP_SRC_EVENT_LOOP_H_
 
-#include <queue>
+#include <set>
 
 #include "events.h"
 
@@ -23,7 +23,7 @@ class EventLoop {
    * @brief Construct a new EventLoop object.
    */
   EventLoop()
-      : timed_queue(), untimed_list(), isr_event_list() {
+      : timed_events_(), untimed_list(), isr_event_list() {
     timed_queue_mutex_ = xSemaphoreCreateRecursiveMutex();
     untimed_list_mutex_ = xSemaphoreCreateRecursiveMutex();
     isr_event_list_mutex_ = xSemaphoreCreateRecursiveMutex();
@@ -39,7 +39,7 @@ class EventLoop {
   EventLoop(const EventLoop&) = delete;
   EventLoop(EventLoop&&) = delete;
 
-  int getTimedEventQueueSize() { return timed_queue.size(); }
+  int getTimedEventQueueSize() { return timed_events_.size(); }
   int getUntimedEventQueueSize() { return untimed_list.size(); }
   int getISREventQueueSize() { return isr_event_list.size(); }
   int getEventQueueSize() {
@@ -128,11 +128,11 @@ class EventLoop {
   void remove(Event* event);
 
  protected:
-  // Timed events are stored in a priority queue, sorted by trigger time. It
-  // pretty much always suffices to just access the top element of the queue.
-  // Element removal is always done by invalidating the element.
-  std::priority_queue<TimedEvent*, std::vector<TimedEvent*>, TriggerTimeCompare>
-      timed_queue;
+  // Timed events are stored in an ordered set, sorted by trigger time (with
+  // pointer tiebreaker for total ordering). This allows O(log n) removal of
+  // specific events, avoiding the zombie-event accumulation that occurred
+  // with the previous priority_queue + lazy-delete approach.
+  std::set<TimedEvent*, TriggerTimeCompare> timed_events_;
   // Untimed events are stored in a vector, which is traversed in order.
   // Elements are rarely removed from the middle of the list, so a vector is
   // acceptable.
