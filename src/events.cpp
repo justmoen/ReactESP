@@ -50,7 +50,8 @@ DelayEvent::DelayEvent(uint64_t delay, react_callback callback)
 void DelayEvent::tick(EventLoop* event_loop) {
   this->last_trigger_time = micros64();
   this->callback();
-  delete this;
+  // Mark as done — tickTimed() will drop the node and delete this event.
+  this->enabled = false;
 }
 
 void RepeatEvent::tick(EventLoop* event_loop) {
@@ -61,15 +62,9 @@ void RepeatEvent::tick(EventLoop* event_loop) {
     this->last_trigger_time = now;
   }
   this->callback();
-  // The callback may have called remove() on this event. If so,
-  // enabled is now false — delete instead of re-inserting.
-  if (this->enabled) {
-    xSemaphoreTakeRecursive(event_loop->timed_queue_mutex_, portMAX_DELAY);
-    event_loop->timed_events_.insert(this);
-    xSemaphoreGiveRecursive(event_loop->timed_queue_mutex_);
-  } else {
-    delete this;
-  }
+  // If the callback called remove(), enabled is now false.
+  // tickTimed() checks isEnabled() and handles reinsertion or
+  // deletion accordingly.
 }
 
 void UntimedEvent::add(EventLoop* event_loop) {

@@ -14,13 +14,25 @@ void EventLoop::tickTimed() {
     if (now < event->getTriggerTimeMicros()) {
       break;
     }
-    timed_events_.erase(it);
+    // Extract the node to avoid heap deallocation. RepeatEvent::tick()
+    // will update the trigger time; we reinsert the same node afterward.
+    auto node = timed_events_.extract(it);
     xSemaphoreGiveRecursive(timed_queue_mutex_);
-    // tick() may re-insert the event (RepeatEvent) or delete it
-    // (DelayEvent), and may call back into the event loop.
+    // tick() may call back into the event loop. For RepeatEvent, tick()
+    // updates the trigger time. For DelayEvent, tick() sets enabled=false.
+    // Either type's callback may call remove(), which also sets
+    // enabled=false.
     event->tick(this);
     timed_event_counter++;
     xSemaphoreTakeRecursive(timed_queue_mutex_, portMAX_DELAY);
+    if (event->isEnabled() && !node.empty()) {
+      // RepeatEvent: reinsert the extracted node without allocation.
+      timed_events_.insert(std::move(node));
+    } else {
+      // DelayEvent (done) or RepeatEvent removed from within its
+      // callback: drop the node and delete the event.
+      delete event;
+    }
   }
   xSemaphoreGiveRecursive(timed_queue_mutex_);
 }

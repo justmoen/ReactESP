@@ -132,7 +132,11 @@ class EventLoop {
   // pointer tiebreaker for total ordering). This allows O(log n) removal of
   // specific events, avoiding the zombie-event accumulation that occurred
   // with the previous priority_queue + lazy-delete approach.
-  std::set<TimedEvent*, TriggerTimeCompare> timed_events_;
+  // The hot path uses C++17 extract()/insert() to reuse tree nodes without
+  // heap allocation.
+  using TimedEventSet = std::set<TimedEvent*, TriggerTimeCompare>;
+  using TimedEventNode = TimedEventSet::node_type;
+  TimedEventSet timed_events_;
   // Untimed events are stored in a vector, which is traversed in order.
   // Elements are rarely removed from the middle of the list, so a vector is
   // acceptable.
