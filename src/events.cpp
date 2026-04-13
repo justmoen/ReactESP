@@ -16,14 +16,25 @@ bool TimedEvent::operator<(const TimedEvent& other) const {
 
 void TimedEvent::add(EventLoop* event_loop) {
   xSemaphoreTakeRecursive(event_loop->timed_queue_mutex_, portMAX_DELAY);
-  event_loop->timed_queue.push(this);
+  event_loop->timed_events_.insert(this);
   xSemaphoreGiveRecursive(event_loop->timed_queue_mutex_);
 }
 
 void TimedEvent::remove(EventLoop* event_loop) {
-  this->enabled = false;
-  // the object will be deleted when it's popped out of the
-  // timer queue
+  xSemaphoreTakeRecursive(event_loop->timed_queue_mutex_, portMAX_DELAY);
+  auto it = event_loop->timed_events_.find(this);
+  if (it != event_loop->timed_events_.end()) {
+    // Event is in the container — erase and delete immediately.
+    event_loop->timed_events_.erase(it);
+    xSemaphoreGiveRecursive(event_loop->timed_queue_mutex_);
+    delete this;
+  } else {
+    // Event is currently being ticked (popped from the container but
+    // not yet re-inserted). Signal tick() to delete it instead of
+    // re-inserting.
+    this->enabled = false;
+    xSemaphoreGiveRecursive(event_loop->timed_queue_mutex_);
+  }
 }
 
 DelayEvent::DelayEvent(uint32_t delay, react_callback callback)
@@ -39,11 +50,11 @@ DelayEvent::DelayEvent(uint64_t delay, react_callback callback)
 void DelayEvent::tick(EventLoop* event_loop) {
   this->last_trigger_time = micros64();
   this->callback();
-  delete this;
+  // Mark as done — tickTimed() will drop the node and delete this event.
+  this->enabled = false;
 }
 
 void RepeatEvent::tick(EventLoop* event_loop) {
-  xSemaphoreTakeRecursive(event_loop->timed_queue_mutex_, portMAX_DELAY);
   auto now = micros64();
   this->last_trigger_time = this->last_trigger_time + this->interval;
   if (this->last_trigger_time + this->interval < now) {
@@ -51,8 +62,9 @@ void RepeatEvent::tick(EventLoop* event_loop) {
     this->last_trigger_time = now;
   }
   this->callback();
-  event_loop->timed_queue.push(this);
-  xSemaphoreGiveRecursive(event_loop->timed_queue_mutex_);
+  // If the callback called remove(), enabled is now false.
+  // tickTimed() checks isEnabled() and handles reinsertion or
+  // deletion accordingly.
 }
 
 void UntimedEvent::add(EventLoop* event_loop) {

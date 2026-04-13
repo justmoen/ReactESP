@@ -7,25 +7,31 @@ namespace reactesp {
 void EventLoop::tickTimed() {
   xSemaphoreTakeRecursive(timed_queue_mutex_, portMAX_DELAY);
   const uint64_t now = micros64();
-  TimedEvent* top = nullptr;
 
-  while (true) {
-    if (timed_queue.empty()) {
+  while (!timed_events_.empty()) {
+    auto it = timed_events_.begin();
+    TimedEvent* event = *it;
+    if (now < event->getTriggerTimeMicros()) {
       break;
     }
-    top = timed_queue.top();
-    if (!top->isEnabled()) {
-      timed_queue.pop();
-      delete top;
-      continue;
-    }
-    const uint64_t trigger_t = top->getTriggerTimeMicros();
-    if (now >= trigger_t) {
-      timed_queue.pop();
-      top->tick(this);
-      timed_event_counter++;
+    // Extract the node to avoid heap deallocation. RepeatEvent::tick()
+    // will update the trigger time; we reinsert the same node afterward.
+    auto node = timed_events_.extract(it);
+    xSemaphoreGiveRecursive(timed_queue_mutex_);
+    // tick() may call back into the event loop. For RepeatEvent, tick()
+    // updates the trigger time. For DelayEvent, tick() sets enabled=false.
+    // Either type's callback may call remove(), which also sets
+    // enabled=false.
+    event->tick(this);
+    timed_event_counter++;
+    xSemaphoreTakeRecursive(timed_queue_mutex_, portMAX_DELAY);
+    if (event->isEnabled() && !node.empty()) {
+      // RepeatEvent: reinsert the extracted node without allocation.
+      timed_events_.insert(std::move(node));
     } else {
-      break;
+      // DelayEvent (done) or RepeatEvent removed from within its
+      // callback: drop the node and delete the event.
+      delete event;
     }
   }
   xSemaphoreGiveRecursive(timed_queue_mutex_);
