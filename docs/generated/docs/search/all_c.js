@@ -7,10 +7,12 @@ var searchData=
   ['ticktimed_4',['tickTimed',['../classreactesp_1_1_event_loop.html#a001ffbb649dc0b4b0dd11a3eb68db76b',1,'reactesp::EventLoop']]],
   ['tickuntimed_5',['tickUntimed',['../classreactesp_1_1_event_loop.html#a816b31c993f0c98a4b3237c87a5b9a72',1,'reactesp::EventLoop']]],
   ['timed_5fevent_5fcounter_6',['timed_event_counter',['../classreactesp_1_1_event_loop.html#ae806860e2b328cb545605e13d74187ed',1,'reactesp::EventLoop']]],
-  ['timed_5fqueue_7',['timed_queue',['../classreactesp_1_1_event_loop.html#a6fcb5faf711d4e95df40d54617fc00c7',1,'reactesp::EventLoop']]],
+  ['timed_5fevents_5f_7',['timed_events_',['../classreactesp_1_1_event_loop.html#aace70d2ba3c27dfbe1ec0513a51cddb8',1,'reactesp::EventLoop']]],
   ['timed_5fqueue_5fmutex_5f_8',['timed_queue_mutex_',['../classreactesp_1_1_event_loop.html#a8e97cde98addebf697e0e763c73f3a63',1,'reactesp::EventLoop']]],
-  ['timedevent_9',['TimedEvent',['../classreactesp_1_1_timed_event.html',1,'reactesp::TimedEvent'],['../classreactesp_1_1_event_loop.html#a0e2baa3e939d2a97c38571681903fb98',1,'reactesp::EventLoop::TimedEvent'],['../classreactesp_1_1_timed_event.html#ae85b8b2e688c819cdfd8ff11a6b4fa75',1,'reactesp::TimedEvent::TimedEvent(uint32_t interval, react_callback callback)'],['../classreactesp_1_1_timed_event.html#a27c05e3670a56cd3732655dea5c9ea5a',1,'reactesp::TimedEvent::TimedEvent(uint64_t interval, react_callback callback)']]],
-  ['timedreaction_10',['TimedReaction',['../namespacereactesp.html#a6dbf0fef884334a7ed39500defcfd630',1,'reactesp']]],
-  ['timer_5fticks_11',['timer_ticks',['../main_8cpp.html#a9747497b4cd5b5c68c9ff49d3ded14a4',1,'main.cpp']]],
-  ['triggertimecompare_12',['TriggerTimeCompare',['../structreactesp_1_1_trigger_time_compare.html',1,'reactesp']]]
+  ['timedevent_9',['TimedEvent',['../classreactesp_1_1_timed_event.html',1,'reactesp::TimedEvent'],['../classreactesp_1_1_event_loop.html#a0e2baa3e939d2a97c38571681903fb98',1,'reactesp::EventLoop::TimedEvent()'],['../classreactesp_1_1_timed_event.html#ae85b8b2e688c819cdfd8ff11a6b4fa75',1,'reactesp::TimedEvent::TimedEvent(uint32_t interval, react_callback callback)'],['../classreactesp_1_1_timed_event.html#a27c05e3670a56cd3732655dea5c9ea5a',1,'reactesp::TimedEvent::TimedEvent(uint64_t interval, react_callback callback)']]],
+  ['timedeventnode_10',['TimedEventNode',['../classreactesp_1_1_event_loop.html#a009f5771e5f5e88f3ed3e73392cfd8ef',1,'reactesp::EventLoop']]],
+  ['timedeventset_11',['TimedEventSet',['../classreactesp_1_1_event_loop.html#af77829a8897bef93166938d342b28a1f',1,'reactesp::EventLoop']]],
+  ['timedreaction_12',['TimedReaction',['../namespacereactesp.html#a6dbf0fef884334a7ed39500defcfd630',1,'reactesp']]],
+  ['timer_5fticks_13',['timer_ticks',['../main_8cpp.html#a9747497b4cd5b5c68c9ff49d3ded14a4',1,'main.cpp']]],
+  ['triggertimecompare_14',['TriggerTimeCompare',['../structreactesp_1_1_trigger_time_compare.html',1,'reactesp']]]
 ];

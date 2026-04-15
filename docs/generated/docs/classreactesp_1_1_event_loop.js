@@ -1,5 +1,7 @@
 var classreactesp_1_1_event_loop =
 [
+    [ "TimedEventNode", "classreactesp_1_1_event_loop.html#a009f5771e5f5e88f3ed3e73392cfd8ef", null ],
+    [ "TimedEventSet", "classreactesp_1_1_event_loop.html#af77829a8897bef93166938d342b28a1f", null ],
     [ "EventLoop", "classreactesp_1_1_event_loop.html#a35c34c7b1a331372c19c596e91cb554e", null ],
     [ "EventLoop", "classreactesp_1_1_event_loop.html#aef1e0c1b2b440df771fbfd870d1edae9", null ],
     [ "EventLoop", "classreactesp_1_1_event_loop.html#a2d48496a5811f37f4b71820b95ca024c", null ],
@@ -34,7 +36,7 @@ var classreactesp_1_1_event_loop =
     [ "isr_event_list_mutex_", "classreactesp_1_1_event_loop.html#ac403da87ea15ffc8e67b8f53ff0f62e2", null ],
     [ "tick_counter", "classreactesp_1_1_event_loop.html#abc2a761405bfe9097053b498ae81d3f6", null ],
     [ "timed_event_counter", "classreactesp_1_1_event_loop.html#ae806860e2b328cb545605e13d74187ed", null ],
-    [ "timed_queue", "classreactesp_1_1_event_loop.html#a6fcb5faf711d4e95df40d54617fc00c7", null ],
+    [ "timed_events_", "classreactesp_1_1_event_loop.html#aace70d2ba3c27dfbe1ec0513a51cddb8", null ],
     [ "timed_queue_mutex_", "classreactesp_1_1_event_loop.html#a8e97cde98addebf697e0e763c73f3a63", null ],
     [ "untimed_event_counter", "classreactesp_1_1_event_loop.html#a5270bf995579fadcfe823a5d45b15fc6", null ],
     [ "untimed_list", "classreactesp_1_1_event_loop.html#a5b8977615a31e2b5e908c4e4de00de41", null ],

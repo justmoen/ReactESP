@@ -1,15 +1,15 @@
 <map id="reactesp::EventLoop::tick" name="reactesp::EventLoop::tick">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,133,147,174"/>
-<area shape="rect" id="Node000002" href="$classreactesp_1_1_event_loop.html#a001ffbb649dc0b4b0dd11a3eb68db76b" title=" " alt="" coords="195,100,336,141"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="146,139,179,133,180,138,147,144"/>
-<area shape="rect" id="Node000007" href="$classreactesp_1_1_event_loop.html#a816b31c993f0c98a4b3237c87a5b9a72" title=" " alt="" coords="195,165,336,206"/>
-<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="147,163,180,169,179,174,146,168"/>
-<area shape="rect" id="Node000003" href="$classreactesp_1_1_timed_event.html#a18e54ee8a5720bf8e218273ad6ce399b" title=" " alt="" coords="384,5,539,46"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="304,97,383,57,396,50,399,55,385,61,306,102"/>
-<area shape="rect" id="Node000004" href="$classreactesp_1_1_timed_event.html#a813ca557a9e1918800e22b27b6a3fe26" title=" " alt="" coords="387,71,536,111"/>
-<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="336,107,371,102,372,107,337,112"/>
-<area shape="rect" id="Node000005" href="$namespacereactesp.html#ad8ee9481c08d90d81a80eded1394f1bb" title="Return the current time since the device restart in microseconds." alt="" coords="396,136,528,161"/>
-<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="337,128,381,134,380,139,336,133"/>
-<area shape="rect" id="Node000006" href="$classreactesp_1_1_timed_event.html#a55884e4ff4d0368e243503def0b31e49" title=" " alt="" coords="387,185,536,226"/>
-<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="313,139,385,171,397,176,395,181,383,176,311,144"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,124,147,165"/>
+<area shape="rect" id="Node000002" href="$classreactesp_1_1_event_loop.html#a001ffbb649dc0b4b0dd11a3eb68db76b" title=" " alt="" coords="195,79,336,120"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="146,125,182,119,177,121,148,130"/>
+<area shape="rect" id="Node000005" href="$classreactesp_1_1_event_loop.html#a816b31c993f0c98a4b3237c87a5b9a72" title=" " alt="" coords="195,156,336,197"/>
+<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="147,154,182,162,177,163,147,159"/>
+<area shape="rect" id="Node000003" href="$namespacereactesp.html#ad8ee9481c08d90d81a80eded1394f1bb" title="Return the current time since the device restart in microseconds." alt="" coords="388,5,521,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="307,76,383,41,403,36,398,38,385,46,309,81"/>
+<area shape="rect" id="Node000004" href="$classreactesp_1_1_event_loop.html#a0e2baa3e939d2a97c38571681903fb98" title=" " alt="" coords="384,79,525,120"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="336,97,371,99,366,100,337,102"/>
+<area shape="poly" id="edge4_Node000004_Node000004" title=" " alt="" coords="419,77,417,69,423,60,435,55,455,53,475,55,489,64,484,63,474,60,455,58,437,60,426,64,422,70,423,80"/>
+<area shape="rect" id="Node000006" href="$classreactesp_1_1_event_loop.html#a19a6b0de0911588fdcda47a5671de629" title=" " alt="" coords="384,168,525,209"/>
+<area shape="poly" id="edge6_Node000005_Node000006" title=" " alt="" coords="336,179,371,183,366,183,336,184"/>
+<area shape="poly" id="edge7_Node000006_Node000006" title=" " alt="" coords="419,166,417,159,423,150,435,144,455,142,475,144,489,153,484,152,474,149,455,147,437,149,426,154,422,160,423,169"/>
 </map>
