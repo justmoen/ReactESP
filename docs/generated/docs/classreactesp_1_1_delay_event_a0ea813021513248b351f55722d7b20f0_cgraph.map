@@ -1,5 +1,10 @@
 <map id="reactesp::DelayEvent::DelayEvent" name="reactesp::DelayEvent::DelayEvent">
-<area shape="rect" id="Node000001" title="Construct a new Delay Event object." alt="" coords="5,5,153,46"/>
-<area shape="rect" id="Node000002" href="$namespacereactesp.html#ad8ee9481c08d90d81a80eded1394f1bb" title="Return the current time since the device restart in microseconds." alt="" coords="201,13,333,38"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="153,23,185,23,185,28,153,28"/>
+<area shape="rect" id="Node000001" title="Construct a new Delay Event object." alt="" coords="5,23,153,64"/>
+<area shape="rect" id="Node000002" href="$namespacereactesp.html#ad8ee9481c08d90d81a80eded1394f1bb" title="Return the current time since the device restart in microseconds." alt="" coords="410,5,542,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="153,36,395,21,394,26,153,41"/>
+<area shape="rect" id="Node000003" href="$classreactesp_1_1_timed_event.html#ae85b8b2e688c819cdfd8ff11a6b4fa75" title="Construct a new Timed Event object." alt="" coords="201,51,350,92"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="153,51,188,58,183,59,153,57"/>
+<area shape="poly" id="edge4_Node000003_Node000002" title=" " alt="" coords="350,49,407,36,413,35,351,54"/>
+<area shape="rect" id="Node000004" href="$classreactesp_1_1_event.html#a6b3dc45d9ebba2a9e815c4892aa0de75" title="Construct a new Event object." alt="" coords="398,59,553,84"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="350,69,385,71,380,72,350,74"/>
 </map>

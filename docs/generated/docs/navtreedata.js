@@ -41,6 +41,7 @@ var NAVTREE =
         [ "All", "functions.html", null ],
         [ "Functions", "functions_func.html", null ],
         [ "Variables", "functions_vars.html", null ],
+        [ "Typedefs", "functions_type.html", null ],
         [ "Related Symbols", "functions_rela.html", null ]
       ] ]
     ] ],
@@ -59,8 +60,9 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "_react_e_s_p_8h.html",
-"structreactesp_1_1_event_interface.html"
+"structreactesp_1_1_event_interface.html#a4ccd0c98a86954e7abfbff8e9068196a"
 ];
 
-var SYNCONMSG = 'click to disable panel synchronisation';
-var SYNCOFFMSG = 'click to enable panel synchronisation';
+var SYNCONMSG = 'click to disable panel synchronization';
+var SYNCOFFMSG = 'click to enable panel synchronization';
+var LISTOFALLMEMBERS = 'List of all members';

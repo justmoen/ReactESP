@@ -1,0 +1,7 @@
+<map id="reactesp::TimedEvent::TimedEvent" name="reactesp::TimedEvent::TimedEvent">
+<area shape="rect" id="Node000001" title="Construct a new Timed Event object." alt="" coords="5,23,155,64"/>
+<area shape="rect" id="Node000002" href="$classreactesp_1_1_event.html#a6b3dc45d9ebba2a9e815c4892aa0de75" title="Construct a new Event object." alt="" coords="203,5,358,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="154,31,190,29,184,31,155,37"/>
+<area shape="rect" id="Node000003" href="$namespacereactesp.html#ad8ee9481c08d90d81a80eded1394f1bb" title="Return the current time since the device restart in microseconds." alt="" coords="214,55,346,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="155,50,202,58,196,58,155,55"/>
+</map>
