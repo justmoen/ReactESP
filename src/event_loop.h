@@ -2,6 +2,7 @@
 #define REACTESP_SRC_EVENT_LOOP_H_
 
 #include <set>
+#include <vector>
 
 #include "events.h"
 
