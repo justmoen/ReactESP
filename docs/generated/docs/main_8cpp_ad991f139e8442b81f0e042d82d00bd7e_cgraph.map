@@ -1,7 +1,0 @@
-<map id="setup_io_pins" name="setup_io_pins">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,42,107,68"/>
-<area shape="rect" id="Node000002" href="$classreactesp_1_1_i_s_r_event.html#a52ff94762bb729778aef8d582bf2e3a8" title=" " alt="" coords="155,5,291,46"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="106,44,142,39,137,41,108,49"/>
-<area shape="rect" id="Node000003" href="$main_8cpp.html#a58acc222e959363ee034cea9488ef627" title=" " alt="" coords="190,70,256,96"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="107,61,177,74,172,76,107,66"/>
-</map>

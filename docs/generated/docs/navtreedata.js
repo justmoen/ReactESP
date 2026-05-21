@@ -46,21 +46,14 @@ var NAVTREE =
       ] ]
     ] ],
     [ "Files", "files.html", [
-      [ "File List", "files.html", "files_dup" ],
-      [ "File Members", "globals.html", [
-        [ "All", "globals.html", null ],
-        [ "Functions", "globals_func.html", null ],
-        [ "Variables", "globals_vars.html", null ],
-        [ "Macros", "globals_defs.html", null ]
-      ] ]
+      [ "File List", "files.html", "files_dup" ]
     ] ]
   ] ]
 ];
 
 var NAVTREEINDEX =
 [
-"_react_e_s_p_8h.html",
-"structreactesp_1_1_event_interface.html#a4ccd0c98a86954e7abfbff8e9068196a"
+"_react_e_s_p_8h.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronization';
