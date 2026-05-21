@@ -2,6 +2,7 @@
 #define REACTESP_SRC_EVENT_LOOP_H_
 
 #include <set>
+#include <vector>
 
 #include "events.h"
 
@@ -133,9 +134,9 @@ class EventLoop {
   // specific events, avoiding the zombie-event accumulation that occurred
   // with the previous priority_queue + lazy-delete approach.
   // The hot path uses C++17 extract()/insert() to reuse tree nodes without
-  // heap allocation.
+  // heap allocation; under C++14 it falls back to erase()/insert(), which
+  // does one heap alloc + dealloc per RepeatEvent tick.
   using TimedEventSet = std::set<TimedEvent*, TriggerTimeCompare>;
-  using TimedEventNode = TimedEventSet::node_type;
   TimedEventSet timed_events_;
   // Untimed events are stored in a vector, which is traversed in order.
   // Elements are rarely removed from the middle of the list, so a vector is
