@@ -1,0 +1,8 @@
+<map id="reactesp::ISREvent::remove" name="reactesp::ISREvent::remove">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,29,142,70"/>
+<area shape="rect" id="Node000002" href="$classreactesp_1_1_event_loop.html#a23a94fde92aa993ee08a34b5bf45a07c" title=" " alt="" coords="190,29,331,70"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="142,47,177,49,171,50,142,52"/>
+<area shape="rect" id="Node000003" href="$classreactesp_1_1_event_loop.html#a0e2baa3e939d2a97c38571681903fb98" title=" " alt="" coords="379,29,520,70"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="331,47,366,50,361,50,331,52"/>
+<area shape="poly" id="edge3_Node000003_Node000003" title=" " alt="" coords="414,27,412,19,418,10,430,5,450,3,470,5,484,14,479,13,469,10,450,8,432,10,421,15,417,20,418,30"/>
+</map>

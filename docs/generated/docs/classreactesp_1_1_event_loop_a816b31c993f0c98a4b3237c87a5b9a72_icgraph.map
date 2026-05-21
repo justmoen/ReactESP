@@ -1,7 +1,5 @@
 <map id="reactesp::EventLoop::tickUntimed" name="reactesp::EventLoop::tickUntimed">
-<area shape="rect" id="Node000001" title=" " alt="" coords="342,5,483,46"/>
-<area shape="rect" id="Node000002" href="$classreactesp_1_1_event_loop.html#a2c84df800a38ca6870c5a20eaa53d526" title=" " alt="" coords="153,5,294,46"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="324,26,294,28,294,23,329,26"/>
-<area shape="rect" id="Node000003" href="$main_8cpp.html#ab9032828806331e4ee839f4dde7611f2" title=" " alt="" coords="5,13,105,38"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="135,26,105,28,105,23,140,25"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="195,5,336,46"/>
+<area shape="rect" id="Node000002" href="$classreactesp_1_1_event_loop.html#a2c84df800a38ca6870c5a20eaa53d526" title=" " alt="" coords="5,5,147,46"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="177,26,147,28,147,23,182,25"/>
 </map>
