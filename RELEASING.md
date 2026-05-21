@@ -11,20 +11,16 @@
 
 1. Create a new local branch `release_x.y.z` from `master`.
 
-2. Bump the version with bumpversion. The version scheme uses an optional
-   `-alpha` suffix, so bumping requires two steps:
+2. Bump the version with bumpversion. The version scheme has an optional
+   `-alpha` suffix, so pass `--new-version` to skip straight to the final
+   version in a single commit:
 
-       bumpversion minor   # 3.2.0 → 3.3.0-alpha
-       bumpversion release # 3.3.0-alpha → 3.3.0
+       bumpversion --new-version x.y.z patch   # for patch release (x.y.Z)
+       bumpversion --new-version x.y.z minor   # for minor release (x.Y.z)
+       bumpversion --new-version x.y.z major   # for major release (X.y.z)
 
-   Replace `minor` with `patch` or `major` as appropriate.
-
-   Each command updates `VERSION`, `library.json`, `library.properties`, and
-   `Doxyfile`, and creates a commit. Squash the two bump commits before
-   proceeding:
-
-       git reset --soft HEAD~2
-       git commit -m "Bump version: x.y.z-1 → x.y.z"
+   This updates `VERSION`, `library.json`, `library.properties`, and
+   `Doxyfile`, and creates a single commit `Bump version: a.b.c → x.y.z`.
 
 3. Regenerate the Doxygen documentation:
 
