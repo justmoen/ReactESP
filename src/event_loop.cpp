@@ -19,7 +19,8 @@ void EventLoop::tickTimed() {
     // will update the trigger time; we reinsert the same node afterward.
     auto node = timed_events_.extract(it);
 #else
-    // C++14 fallback: erase + reinsert, one allocation per RepeatEvent tick.
+    // C++14 fallback: erase + reinsert, one heap alloc + dealloc per
+    // RepeatEvent tick.
     timed_events_.erase(it);
 #endif
     xSemaphoreGiveRecursive(timed_queue_mutex_);

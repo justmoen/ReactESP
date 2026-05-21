@@ -134,12 +134,9 @@ class EventLoop {
   // specific events, avoiding the zombie-event accumulation that occurred
   // with the previous priority_queue + lazy-delete approach.
   // The hot path uses C++17 extract()/insert() to reuse tree nodes without
-  // heap allocation; under C++14 it falls back to erase()/insert() with one
-  // allocation per RepeatEvent tick.
+  // heap allocation; under C++14 it falls back to erase()/insert(), which
+  // does one heap alloc + dealloc per RepeatEvent tick.
   using TimedEventSet = std::set<TimedEvent*, TriggerTimeCompare>;
-#if __cplusplus >= 201703L
-  using TimedEventNode = TimedEventSet::node_type;
-#endif
   TimedEventSet timed_events_;
   // Untimed events are stored in a vector, which is traversed in order.
   // Elements are rarely removed from the middle of the list, so a vector is
