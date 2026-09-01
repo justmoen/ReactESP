@@ -1,0 +1,9 @@
+idf_component_register(
+    SRCS
+        "src/event_loop.cpp"
+        "src/events.cpp"
+    INCLUDE_DIRS
+        "src"
+    REQUIRES
+        arduino
+)
